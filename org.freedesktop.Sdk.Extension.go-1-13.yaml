@@ -14,7 +14,7 @@ modules:
     only-arches:
     - x86_64
     url: https://dl.google.com/go/go1.13.9.linux-amd64.tar.gz
-    sha256: 61068419f3d3fcd3cc415c352c4a93d6ae0e723ac18a22ac572b4904d78b5a4c
+    sha256: f4ad8180dd0aaf7d7cda7e2b0a2bf27e84131320896d376549a7d849ecf237d7
   build-commands:
   - install -d /usr/lib/sdk/go-1-13
   - cp -rpv * /usr/lib/sdk/go-1-13/
