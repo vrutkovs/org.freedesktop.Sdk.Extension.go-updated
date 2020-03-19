@@ -1,4 +1,4 @@
-id: org.freedesktop.Sdk.Extension.go-1-12
+id: org.freedesktop.Sdk.Extension.go-1-13
 branch: '19.08'
 runtime: org.freedesktop.Sdk
 build-extension: true
@@ -13,29 +13,29 @@ modules:
   - type: archive
     only-arches:
     - x86_64
-    url: https://dl.google.com/go/go1.12.15.linux-amd64.tar.gz
+    url: https://dl.google.com/go/go1.13.9.linux-amd64.tar.gz
     sha256: 61068419f3d3fcd3cc415c352c4a93d6ae0e723ac18a22ac572b4904d78b5a4c
   build-commands:
-  - install -d /usr/lib/sdk/go-1-12
-  - cp -rpv * /usr/lib/sdk/go-1-12/
+  - install -d /usr/lib/sdk/go-1-13
+  - cp -rpv * /usr/lib/sdk/go-1-13/
 
 - name: scripts
   sources:
   - type: script
     commands:
-    - export GOROOT=/usr/lib/sdk/go-1-12
+    - export GOROOT=/usr/lib/sdk/go-1-13
     - export PATH=$PATH:$GOROOT/bin
     dest-filename: enable.sh
   buildsystem: simple
   build-commands:
-  - cp enable.sh /usr/lib/sdk/go-1-12/
+  - cp enable.sh /usr/lib/sdk/go-1-13/
 
 - name: appdata
   buildsystem: simple
   build-commands:
   - mkdir -p ${FLATPAK_DEST}/share/appdata
-  - cp org.freedesktop.Sdk.Extension.go-1-12.appdata.xml ${FLATPAK_DEST}/share/appdata
-  - appstream-compose  --basename=org.freedesktop.Sdk.Extension.go-1-12 --prefix=${FLATPAK_DEST} --origin=flatpak org.freedesktop.Sdk.Extension.go-1-12
+  - cp org.freedesktop.Sdk.Extension.go-1-13.appdata.xml ${FLATPAK_DEST}/share/appdata
+  - appstream-compose  --basename=org.freedesktop.Sdk.Extension.go-1-13 --prefix=${FLATPAK_DEST} --origin=flatpak org.freedesktop.Sdk.Extension.go-1-13
   sources:
   - type: file
-    path: org.freedesktop.Sdk.Extension.go-1-12.appdata.xml
+    path: org.freedesktop.Sdk.Extension.go-1-13.appdata.xml

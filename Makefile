@@ -10,8 +10,8 @@ install-deps:
 
 build:
 	flatpak-builder --force-clean --ccache --require-changes --repo=repo \
-		--subject="Go 1.12.12, `date`" \
-		${EXPORT_ARGS} app org.freedesktop.Sdk.Extension.go-1-12.yaml
+		--subject="Go 1.12.9, `date`" \
+		${EXPORT_ARGS} app org.freedesktop.Sdk.Extension.go-1-13.yaml
 
 update-repo:
 	flatpak build-update-repo --prune --prune-depth=20 --generate-static-deltas repo
