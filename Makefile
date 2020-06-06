@@ -1,4 +1,4 @@
-all: prepare-repo install-deps build update-repo
+all: prepare-repo install-deps build clean-cache update-repo copy-to-export
 
 prepare-repo:
 	[[ -d repo ]] || ostree init --mode=archive-z2 --repo=repo
@@ -10,9 +10,16 @@ install-deps:
 
 build:
 	flatpak-builder --force-clean --ccache --require-changes --repo=repo \
-		--subject="Go 1.12.9, `date`" \
+		--subject="Go 1.13, `date`" \
 		${EXPORT_ARGS} app org.freedesktop.Sdk.Extension.go-1-13.yaml
+
+clean-cache:
+	rm -rf .flatpak-builder/build
 
 update-repo:
 	flatpak build-update-repo --prune --prune-depth=20 --generate-static-deltas repo
 	rm -rf repo/.lock
+
+copy-to-export:
+	rm -rf export && mkdir export
+	cp -rf repo/ export/
