@@ -10,8 +10,8 @@ install-deps:
 
 build:
 	flatpak-builder --force-clean --ccache --require-changes --repo=repo \
-		--subject="Go 1.13, `date`" \
-		${EXPORT_ARGS} app org.freedesktop.Sdk.Extension.go-1-13.yaml
+		--subject="Go 1.15, `date`" \
+		${EXPORT_ARGS} app org.freedesktop.Sdk.Extension.go-1-15.yaml
 
 clean-cache:
 	rm -rf .flatpak-builder/build
