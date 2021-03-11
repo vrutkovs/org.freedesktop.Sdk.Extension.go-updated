@@ -13,8 +13,8 @@ modules:
   - type: archive
     only-arches:
     - x86_64
-    url: https://golang.org/dl/go1.15.8.linux-amd64.tar.gz
-    sha256: d3379c32a90fdf9382166f8f48034c459a8cc433730bc9476d39d9082c94583b
+    url: https://golang.org/dl/go1.15.9.linux-amd64.tar.gz
+    sha256: a55f3e75bc1098045851d40ea74f9d77efc7958e9af85131a96ca387d38b1834
   build-commands:
   - install -d /usr/lib/sdk/go-1-15
   - cp -rpv * /usr/lib/sdk/go-1-15/
