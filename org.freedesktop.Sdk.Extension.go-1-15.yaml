@@ -6,6 +6,7 @@ sdk: org.freedesktop.Sdk
 runtime-version: '20.08'
 separate-locales: false
 appstream-compose: false
+
 modules:
 - name: golang
   buildsystem: simple
@@ -15,6 +16,12 @@ modules:
     - x86_64
     url: https://golang.org/dl/go1.15.10.linux-amd64.tar.gz
     sha256: 4aa1267517df32f2bf1cc3d55dfc27d0c6b2c2b0989449c96dd19273ccca051d
+    x-checker-data:
+        type: anitya
+        project-id: 1227
+        versions:
+          "<": "1.16.0"
+        url-template: https://golang.org/dl/go$version.linux-amd64.tar.gz
   build-commands:
   - install -d /usr/lib/sdk/go-1-15
   - cp -rpv * /usr/lib/sdk/go-1-15/
