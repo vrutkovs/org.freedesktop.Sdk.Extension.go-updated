@@ -1,0 +1,49 @@
+id: org.freedesktop.Sdk.Extension.go-1-16
+branch: '20.08'
+runtime: org.freedesktop.Sdk
+build-extension: true
+sdk: org.freedesktop.Sdk
+runtime-version: '20.08'
+separate-locales: false
+appstream-compose: false
+
+modules:
+  - name: golang
+    buildsystem: simple
+    sources:
+      - type: archive
+        only-arches:
+          - x86_64
+        url: https://golang.org/dl/go1.16.4.linux-amd64.tar.gz
+        sha256: 7154e88f5a8047aad4b80ebace58a059e36e7e2e4eb3b383127a28c711b4ff59
+        x-checker-data:
+          type: anitya
+          project-id: 1227
+          versions:
+            <: 1.16.0
+          url-template: https://golang.org/dl/go$version.linux-amd64.tar.gz
+    build-commands:
+      - install -d /usr/lib/sdk/go-1-16
+      - cp -rpv * /usr/lib/sdk/go-1-16/
+
+  - name: scripts
+    sources:
+      - type: script
+        commands:
+          - export GOROOT=/usr/lib/sdk/go-1-16
+          - export PATH=$PATH:$GOROOT/bin
+        dest-filename: enable.sh
+    buildsystem: simple
+    build-commands:
+      - cp enable.sh /usr/lib/sdk/go-1-16/
+
+  - name: appdata
+    buildsystem: simple
+    build-commands:
+      - mkdir -p ${FLATPAK_DEST}/share/appdata
+      - cp org.freedesktop.Sdk.Extension.go-1-16.appdata.xml ${FLATPAK_DEST}/share/appdata
+      - appstream-compose  --basename=org.freedesktop.Sdk.Extension.go-1-16 --prefix=${FLATPAK_DEST}
+        --origin=flatpak org.freedesktop.Sdk.Extension.go-1-16
+    sources:
+      - type: file
+        path: org.freedesktop.Sdk.Extension.go-1-16.appdata.xml

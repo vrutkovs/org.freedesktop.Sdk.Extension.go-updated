@@ -26,11 +26,12 @@ jobs:
         id: build_flatpak
         with:
           kind: app
-          id: org.freedesktop.Sdk.Extension.go-1-15
+          id: org.freedesktop.Sdk.Extension.go-1-16
           arch: x86_64
           branch: master
 
       - name: Upload flatpak
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: vrutkovs/action-flatpak-upload@main
         with:
           build-repo-path: ${{ steps.build_flatpak.outputs.build-repo }}

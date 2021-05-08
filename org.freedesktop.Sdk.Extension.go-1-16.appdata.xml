@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component type="runtime">
-  <id>org.freedesktop.Sdk.Extension.go-1-15</id>
+  <id>org.freedesktop.Sdk.Extension.go-1-16</id>
   <metadata_license>CC0-1.0</metadata_license>
   <name>Go programming language Sdk extension</name>
   <summary>Go compiler and tools</summary>
   <url type="homepage">https://golang.org/</url>
+  <releases>
+    <release version="1.16.4" date="2021-05-06"/>
+  </releases>
 </component>
