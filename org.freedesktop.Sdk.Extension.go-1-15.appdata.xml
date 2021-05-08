@@ -5,4 +5,7 @@
   <name>Go programming language Sdk extension</name>
   <summary>Go compiler and tools</summary>
   <url type="homepage">https://golang.org/</url>
+  <releases>
+    <release version="1.16.4" date="2021-05-06"/>
+  </releases>
 </component>
