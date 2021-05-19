@@ -20,7 +20,8 @@ modules:
           type: anitya
           project-id: 1227
           versions:
-            <: 1.16.0
+            ">": 1.16.0
+            "<": 1.17.0
           url-template: https://golang.org/dl/go$version.linux-amd64.tar.gz
     build-commands:
       - install -d /usr/lib/sdk/go-1-16
